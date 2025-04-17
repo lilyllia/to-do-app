@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root{
+    --background: #541825;
+    --primary: #8C2F39;
+    --secondary: #B23A48;
+    --accent: #FCB9B2;
+    --text: #FED0BB;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html{
+    font-family: "Fira Code", monospace;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+button img{
+    width: 30px;
+}
+
+#task{
+    height: 40px;
+    width: 30dvw;
+    text-align: center;
+    font-family: inherit;
+    border: 2px solid var(--accent);
+}
+
+.container1 form img{
+    position: relative;
+}
+
+.container1,.container2,form,.tasklist{
+    display: flex;
+}
+
+.container1,.container2,.tasklist{
+    flex-direction: column;
+    align-items: center;
+}
+
+.container1{
+    margin: 5dvw 20dvw;
+    padding: 1rem;
+    background-color: var(--secondary);
+    border-radius: 10px;
+}
+
+.tasklist li{
+    display: flex;
+    padding: 10px;
+    background-color: var(--primary);
+    border-radius: 5px;
+    justify-content: center;
+    width: clamp(20rem, 25dvw, 40rem);
+    align-items: baseline;
+
+}
+
+.tasklist{
+    gap: 10px;
+    margin-top: 20px;
+}
+
+li input{
+    display: none;
+}
+
+.input-and-button{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+h2{
+    text-align: center;
+    color: var(--accent);
+    font-weight: 300;
+}
+
+button:not(.add){
+    font-family: "Fira Code", monospace;
+    margin: 2px;
+    padding: 4px;
+}
+
+button.delete{
+    background-color : var(--accent);
+    color: var(--secondary);
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+button.edit{
+    background-color : var(--text);
+    color: var(--primary);
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+button.clear{
+    color: #FF2F2F;
+    background-color: var(--background);
+    border-radius: 8px;
+}
+
