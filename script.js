@@ -1,4 +1,5 @@
-let tasks = []
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
 document.getElementById("clearButton").style.visibility = "hidden";
 
 function addTask(){
@@ -11,13 +12,12 @@ function addTask(){
         let errorMessage = "An empty task is invalid!";
         message.textContent = errorMessage;
         message.style.color ="#FF2F2F";
-        document.getElementById("clearButton").style.visibility = "hidden";
     } else{
-        document.getElementById("clearButton").style.visibility = "visible";
         let sucessMessage = "Task added successfully!";
         message.textContent = sucessMessage;
         message.style.color ="#77AD4E";
         tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));//test
         renderTasks()
     }
 
@@ -46,11 +46,15 @@ function renderTasks(){
         newTask.appendChild(deleteButton)
         newTask.appendChild(editButton)
         taskList.appendChild(newTask);
+
+        document.getElementById("clearButton").style.visibility = tasks.length > 0 ? "visible" : "hidden";
+
     }
 }
 
 function deleteTask(i) {
     tasks.splice(i, 1)
+    localStorage.setItem("tasks", JSON.stringify(tasks));//test
     renderTasks()
 }
 
@@ -58,14 +62,18 @@ function editTask(i){
     let editedTask = prompt("Edit your task:")
     if (editedTask.trim() !== "") {
         tasks[i] = editedTask
+        localStorage.setItem("tasks", JSON.stringify(tasks));//test
         renderTasks()
     }
 }
 
 function clearAll (){
     tasks.length = 0
+    localStorage.setItem("tasks", JSON.stringify(tasks));//test
     renderTasks()
     let message = document.getElementById('message')
     message.textContent = "Tasklist all cleared up!"
 
 }
+
+renderTasks();
